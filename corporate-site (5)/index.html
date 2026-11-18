@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ТД «Придніпровський» — корпоративний сайт</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="dock" aria-label="Основне меню">
+  <a class="mark" href="#about" title="ТД «Придніпровський»" aria-label="На головну">ПД</a>
+  <a class="l" href="#about" data-p="about">Про компанію</a>
+  <a class="l" href="#catalog" data-p="catalog">Каталог</a>
+  <a class="l" href="#news" data-p="news">Новини</a>
+  <a class="l" href="#contacts" data-p="contacts">Контакти</a>
+</nav>
+
+
+<main class="wrap">
+<!-- ПРО КОМПАНІЮ -->
+<section class="page" id="p-about">
+  <div class="hero">
+    <div>
+      <p class="caps mut">ТД «Придніпровський»</p>
+      <h1>Усе необхідне для дому та магазину</h1>
+      <button class="btn p arrow" onclick="location.hash='catalog'">Відкрити каталог</button>
+    </div>
+    <div class="caps">
+      Постачаємо продукти харчування, господарські товари та товари повсякденного попиту
+      <p class="sm-note mut">З 2008 року<br>Дніпро та Дніпропетровщина</p>
+    </div>
+  </div>
+  <div class="mintrow">
+    <div class="bubble l">Роздрібним мережам і мешканцям області</div>
+    <div class="bubble big">1 200+</div>
+    <div class="bubble r">Позицій на складі щодня</div>
+  </div>
+  <div class="grid3" style="margin-top:16px">
+    <div class="box"><h3>18 років</h3><p>на ринку Придніпров’я</p></div>
+    <div class="box"><h3>340 партнерів</h3><p>постійних клієнтів і виробників</p></div>
+    <div class="box"><h3>24 години</h3><p>доставка по місту</p></div>
+  </div>
+  <h2>Чим ми займаємось</h2>
+  <div class="grid3">
+    <div class="box"><h3>Продукти харчування</h3><p>Бакалія, консерви, молочна та кондитерська продукція від перевірених виробників.</p></div>
+    <div class="box"><h3>Господарські товари</h3><p>Засоби для прибирання, посуд, інструмент та все для догляду за оселею.</p></div>
+    <div class="box"><h3>Товари повсякденного попиту</h3><p>Гігієна, канцелярія, батарейки, побутова дрібниця щодня під рукою.</p></div>
+  </div>
+  <h2>Наші принципи</h2>
+  <div class="grid3">
+    <div class="box"><h3>Чесні ціни</h3><p>Прямі контракти з виробниками без зайвих посередників.</p></div>
+    <div class="box"><h3>Контроль якості</h3><p>Кожна партія проходить перевірку термінів придатності й пакування.</p></div>
+    <div class="box"><h3>Швидка логістика</h3><p>Власний автопарк і відвантаження в день замовлення.</p></div>
+  </div>
+  <h2>Географія доставки</h2>
+  <p class="mut" style="max-width:60ch;margin:0 0 18px">Головний офіс і склад — у Дніпрі. Доставляємо замовлення в міста України, обирайте місто під час оформлення.</p>
+  <div class="chips"><span class="chip hq">Дніпро</span><span class="chip">Київ</span><span class="chip">Харків</span><span class="chip">Одеса</span><span class="chip">Львів</span><span class="chip">Запоріжжя</span><span class="chip">Кривий Ріг</span><span class="chip">Кам’янське</span><span class="chip">Полтава</span><span class="chip">Вінниця</span><span class="chip">Черкаси</span><span class="chip">Житомир</span><span class="chip">Суми</span><span class="chip">Чернігів</span><span class="chip">Рівне</span><span class="chip">Івано-Франківськ</span><span class="chip">Тернопіль</span><span class="chip">Луцьк</span><span class="chip">Ужгород</span><span class="chip">Чернівці</span><span class="chip">Хмельницький</span><span class="chip">Кропивницький</span><span class="chip">Миколаїв</span></div>
+</section>
+
+<!-- КАТАЛОГ -->
+<section class="page" id="p-catalog">
+  <h1>Каталог товарів</h1>
+  <div class="tools">
+    <label>Пошук за назвою або виробником<input id="q" type="search" placeholder="Наприклад: Олейна"></label>
+    <label>Категорія<select id="fc"></select></label>
+    <label>Виробник<select id="fm"></select></label>
+    <label>Ціна, грн<span class="row2"><input id="pmin" type="number" min="0" placeholder="від"><input id="pmax" type="number" min="0" placeholder="до"></span></label>
+    <label>Наявність<select id="fs"><option value="">Усі</option><option value="1">В наявності</option><option value="0">Немає в наявності</option></select></label>
+    <label>Сортування<select id="so"><option value="">За замовчуванням</option><option value="asc">Ціна: від нижчої</option><option value="desc">Ціна: від вищої</option></select></label>
+  </div>
+  <div class="meta"><span id="cnt"></span><span class="acts"><button class="btn p sm" id="cartBtn">Кошик (0)</button><button class="btn sm" id="reset">Скинути фільтри</button><button class="btn p sm arrow" id="add">Додати товар</button></span></div>
+  <div class="cards" id="cards"></div>
+</section>
+
+<!-- НОВИНИ -->
+<section class="page" id="p-news">
+  <h1>Новини компанії</h1>
+  <div class="news">
+    <article class="box"><time>12 листопада 2026</time><h3>Відкрито новий склад у Дніпрі</h3><p>Площа складу збільшилась на 2 000 м², що дозволило втричі скоротити час комплектації замовлень.</p></article>
+    <article class="box"><time>28 жовтня 2026</time><h3>Нові партнери серед виробників круп і олії</h3><p>Підписано договори на прямі поставки, тому ціни на бакалію в каталозі знижено в середньому на 4%.</p></article>
+    <article class="box"><time>5 жовтня 2026</time><h3>Оптова знижка для постійних клієнтів</h3><p>Від 20 000 грн у місяць діє індивідуальна знижка. Деталі — у менеджерів відділу продажу.</p></article>
+    <article class="box"><time>14 вересня 2026</time><h3>Запуск оновленого сайту</h3><p>Тепер каталог має пошук, фільтри та сортування, а товари оновлюються щодня.</p></article>
+  </div>
+</section>
+
+<!-- КОНТАКТИ -->
+<section class="page" id="p-contacts">
+  <h1>Контакти</h1>
+  <div class="grid3">
+    <div class="box"><h3>Адреса</h3><p>м. Дніпро, вул. Січових Стрільців, 25<br>Склад: вул. Промислова, 7</p><h3>Графік роботи</h3><p>Пн–Пт: 9:00–18:00<br>Сб: 10:00–14:00</p></div>
+    <div class="box"><h3>Зв’язок</h3><p>Тел.: <a href="tel:+380561234567">+38 (056) 123-45-67</a><br>E-mail: <a href="mailto:info@pridnipro.example">info@pridnipro.example</a></p></div>
+    <div class="box"><h3>Написати нам</h3>
+      <form id="cf" style="display:grid;gap:12px">
+        <label>Ім’я<input required></label>
+        <label>E-mail<input type="email" required></label>
+        <label>Повідомлення<textarea rows="3" required></textarea></label>
+        <button class="btn p arrow">Надіслати</button>
+      </form></div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">© 2026 ТД «Придніпровський». Навчальний проєкт курсової роботи. · <a href="admin.html">Адмін-панель</a></div></footer>
+
+<!-- Форма товару -->
+<dialog id="dlg"><form id="pf" method="dialog">
+  <h2 id="dt">Новий товар</h2>
+  <label>Назва<input id="f-name" required maxlength="80"></label>
+  <label>Опис<textarea id="f-desc" rows="3" required></textarea></label>
+  <div class="row2">
+    <label style="flex:1">Категорія<select id="f-cat" required></select></label>
+    <label style="flex:1">Виробник<input id="f-maker" required></label>
+  </div>
+  <div class="row2">
+    <label style="flex:1">Артикул<input id="f-sku" required></label>
+    <label style="flex:1">Одиниця виміру<select id="f-unit"><option>шт</option><option>кг</option><option>л</option><option>уп</option></select></label>
+  </div>
+  <div class="row2">
+    <label style="flex:1">Ціна, грн<input id="f-price" type="number" min="0" step="0.01" required></label>
+    <label style="flex:1">Наявність<select id="f-stock"><option value="1">В наявності</option><option value="0">Немає в наявності</option></select></label>
+  </div>
+  <label>Фото (необов’язково)<input id="f-img" type="file" accept="image/*"></label>
+  <img id="pv" class="pv" alt="" hidden>
+  <div class="row2" style="justify-content:flex-end"><button type="button" class="btn" id="cancel">Скасувати</button><button class="btn p" id="save">Зберегти</button></div>
+</form></dialog>
+<dialog id="cd"><form id="cform" method="dialog">
+  <h2>Оформлення замовлення</h2>
+  <div id="clist"></div>
+  <div class="total" id="ctotal"></div>
+  <label>Ім’я<input id="c-name" required></label>
+  <label>Телефон<input id="c-phone" type="tel" required placeholder="+380..."></label>
+  <label>Місто<select id="c-city" required></select></label>
+  <label>Адреса (вулиця, будинок, відділення)<input id="c-addr" required></label>
+  <label>Коментар<textarea id="c-com" rows="2"></textarea></label>
+  <div class="row2" style="justify-content:flex-end"><button type="button" class="btn" id="ccancel">Закрити</button><button class="btn p arrow">Оформити замовлення</button></div>
+</form></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

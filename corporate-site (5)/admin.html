@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Адмін-панель замовлень — ТД «Придніпровський»</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;800" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="wrap">
+<section id="login" class="box">
+  <h2 style="margin:0 0 6px;font-size:36px">Вхід в адмін-панель</h2>
+  <p class="mut">Введіть пароль (навчальний: admin123)</p>
+  <form id="lf"><label>Пароль<input id="pw" type="password" required autocomplete="current-password"></label>
+  <p class="err" id="lerr" role="alert"></p>
+  <button class="btn p arrow">Увійти</button></form>
+  <p style="margin:18px 0 0"><a href="index.html">← На сайт</a></p>
+</section>
+
+<section id="app" hidden>
+  <div class="atop"><h1>Замовлення</h1>
+    <span class="acts"><button class="btn p arrow" id="newBtn">Нове замовлення</button><a class="btn" href="index.html" style="text-decoration:none">На сайт</a><button class="btn" id="logout">Вийти</button></span></div>
+  <div class="astats" id="st"></div>
+  <div class="tools" style="margin-bottom:18px">
+    <label>Пошук (№, ім’я, місто, телефон)<input id="q" type="search"></label>
+    <label>Статус<select id="fs"></select></label>
+  </div>
+  <div id="list"></div>
+</section>
+</main>
+
+<dialog id="dd"><form method="dialog" onsubmit="return false">
+  <h2 id="dtt"></h2><div id="dbody"></div>
+  <div class="row2" style="justify-content:flex-end"><button type="button" class="btn" id="dclose">Закрити</button><button type="button" class="btn p" id="dsave">Зберегти статус</button></div>
+</form></dialog>
+
+<dialog id="nd"><form id="nf" method="dialog">
+  <h2>Нове замовлення</h2>
+  <label>Ім’я клієнта<input id="n-name" required></label>
+  <label>Телефон<input id="n-phone" type="tel" required></label>
+  <label>Місто<select id="n-city" required></select></label>
+  <label>Адреса (вулиця, будинок, відділення)<input id="n-addr" required></label>
+  <label>Коментар<textarea id="n-com" rows="2"></textarea></label>
+  <div id="nrows" style="display:grid;gap:8px"></div>
+  <button type="button" class="btn sm" id="addrow" style="justify-self:start">+ Додати позицію</button>
+  <div class="total" id="ntotal"></div>
+  <div class="row2" style="justify-content:flex-end"><button type="button" class="btn" id="ncancel">Скасувати</button><button class="btn p">Створити</button></div>
+</form></dialog>
+<div class="toast" id="toast" role="status"></div>
+<script src="js/data.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
